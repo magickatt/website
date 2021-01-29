@@ -94,7 +94,7 @@ Issuer to generate the desired certificate:
 
 ```bash
 cat <<EOF | kubectl apply -f -
-apiVersion: cert-manager.io/v1
+apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
   name: linkerd-identity-issuer
@@ -110,8 +110,7 @@ spec:
   dnsNames:
   - identity.linkerd.cluster.local
   isCA: true
-  privateKey:
-    algorithm: ECDSA
+  keyAlgorithm: ecdsa
   usages:
   - cert sign
   - crl sign
